@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "algoritma-alam",
+    "name": "Algoritma Alam",
     "slug": "algoritma-alam",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,6 +17,8 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "id.algoritmaalam.ios",
+      "buildNumber": "0.0.1",
       "supportsTablet": true
     },
     "android": {
