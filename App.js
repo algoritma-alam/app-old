@@ -324,7 +324,7 @@ export default function App() {
 
       </ScrollView>
 
-      <View style={[tailwind('bottom-0 border-t border-white border-opacity-30 '), { backgroundColor: '#202020', position: 'fixed', height: '7%' }]}>
+      <View style={[tailwind('bottom-0 border-t border-white border-opacity-30 '), { backgroundColor: '#202020', height: '7%' }]}>
       </View>
     </>
 
