@@ -230,7 +230,7 @@ export default function App() {
     <>
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={{flexGrow: 1, backgroundColor: '#181818'}} style={{ backgroundColor: '#181818' }}>
-        <View style={{  alignItems: 'center', position: 'relative', marginBottom: windowHeight + (20/100 * recomendedVideoThumbnailHeight) }}>
+        <View style={{  alignItems: 'center', position: 'relative', marginBottom: windowHeight + (hp('50%')/hp('100%') * recomendedVideoThumbnailHeight) }}>
           <View style={[  styles.recomendedVideo, { height: recomendedVideoThumbnailHeight }  ]}>
 
             <View style={[tailwind('absolute inset-0 ml-4 w-10 z-20')]}>
@@ -305,7 +305,7 @@ export default function App() {
 
               <Text style={tailwind('text-white font-bold mt-2')}>Kisah Perjalanan Simbah</Text>
               <FlatList
-                style={tailwind('mt-2 z-20')}
+                style={tailwind('mt-2 z-20 pb-10')}
                 horizontal={true}
                 data={videos.filter((video) => {
                   const { categories } = video
