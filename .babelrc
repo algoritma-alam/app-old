@@ -1,21 +1,16 @@
 {
-  "presets": ["babel-preset-expo"],
-  "env": {
-    "development": {
-      "plugins":
-        [
-          ["module-resolver",{
-              "root": ["./"],
-              "alias": {
-                "@components": "./components",
-                "@resources": "./resources",
-                "@assets": "./assets",
-                "@images": "./assets/images",
-                "@pages": "./pages",
-              }
-            }
-          ]
-        ]
-      }
-    }
+  "presets": ["module:metro-react-native-babel-preset"],
+  "plugins": [
+      ["module-resolver",{
+          "root": ["./"],
+          "alias": {
+            "@components": "./components",
+            "@resources": "./resources",
+            "@assets": "./assets",
+            "@images": "./assets/images",
+            "@pages": "./pages",
+          }
+        }
+      ]
+    ]
   }
