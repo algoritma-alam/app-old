@@ -1,0 +1,5 @@
+export { default as HomeIcon } from './HomeIcon'
+export { default as MerchIcon } from './MerchIcon'
+export { default as SearchIcon } from './SearchIcon'
+export { default as AlgoritmaAlamNoBackground } from './AlgoritmaAlamNoBackground'
+export { default as MoreIcon } from './MoreIcon'
