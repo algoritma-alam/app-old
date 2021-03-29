@@ -6,10 +6,10 @@
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/bencana%20alam%20dan%20darah%20perwan.png",
         "thumbnailStatic": "/assets/images/0.png",
         "tags": [
-            "Menegangkan", "Mencekam", "Hantuuuuuu", "Wkwkwkwk"
+            "Menegangkan", "Mencekam", "Rahasia Alam"
         ],
         "categories": [
-            "mitos", "cerita-rakyat"
+            "mitos", "cerita-rakyat", "rahasia-alam"
         ]
     },
     {
@@ -19,10 +19,10 @@
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/satrio%20piningit.png",
         "thumbnailStatic": "/assets/images/1.png",
         "tags": [
-            "Kisah Jawa", "Ramalan", "Anak Manusia"
+            "Kisah Jawa", "Ramalan", "Kisah Teladan"
         ],
         "categories": [
-            "ramalan", "kisah-jawa"
+            "ramalan", "kisah-jawa", "kisah-teladan"
         ]
     },
 
@@ -34,10 +34,10 @@
         "thumbnailStatic": "/assets/images/2.png",
         "tags": [
         "tags": [
-            "Pesugihan", "Karma", "Kisah", "Kematian"
+            "Pesugihan", "Karma", "Horor", "Kematian"
         ],
         "categories": [
-            "pesugihan", "kisah-nyata"
+            "pesugihan", "kisah-nyata", "karma", "horor"
         ]
     },
     {
@@ -48,10 +48,10 @@
         "thumbnailStatic": "/assets/images/3.png",
         "tags": [
         "tags": [
-            "Menegangkan", "Kecelakaan", "Mitos"
+            "Menegangkan", "Kecelakaan", "Mitos", "Horor"
         ],
         "categories": [
-            "mitos"
+            "mitos", "horor"
         ]
     },
     {
@@ -62,10 +62,10 @@
         "thumbnailStatic": "/assets/images/4.png",
         "tags": [
         "tags": [
-            "Menegangkan", "Mitos", "Setelah Mati", "Roh"
+            "Menegangkan", "Mitos", "Setelah Mati", "Perjalanan Roh", "Horor"
         ],
         "categories": [
-            "mitos"
+            "mitos", "horor", "perjalanan-roh"
         ]
     },
     {
@@ -76,10 +76,10 @@
         "thumbnailStatic": "/assets/images/5.png",
         "tags": [
         "tags": [
-            "Kematian", "Menegangkan", "Kisah Simbah", "Cerita"
+            "Kematian", "Menegangkan", "Kisah Simbah", "Cerita", "Filsafat"
         ],
         "categories": [
-            "kisah-nyata", "simbah"
+            "kisah-nyata", "simbah", "filsafat", "perjalanan-roh"
         ]
     },
     {
@@ -90,10 +90,10 @@
         "thumbnailStatic": "/assets/images/6.png",
         "tags": [
         "tags": [
-            "Cerita Simbah", "Pertarungan Sengit", "Hantuuuuuu", "Wkwkwkwk"
+            "Cerita Simbah", "Horor", "Rahasia Alam"
         ],
         "categories": [
-            "kisah-nyata", "simbah"
+            "kisah-nyata", "simbah", "horor", "rahasia-alam"
         ]
     },
     {
@@ -104,10 +104,10 @@
         "thumbnailStatic": "/assets/images/7.png",
         "tags": [
         "tags": [
-            "Kisah Rakyat", "Mencekam", "Hantu", "Gak tau apalagi wkwkw"
+            "Kisah Rakyat", "Mencekam", "Hantu", "Horor"
         ],
         "categories": [
-            "mitor", "cerita-rakyat"
+            "mitor", "cerita-rakyat", "horor"
         ]
     },
     {
@@ -118,10 +118,10 @@
         "thumbnailStatic": "/assets/images/8.png",
         "tags": [
         "tags": [
-            "Teror Ghaib", "Mencekam", "Hantu", "Pengalaman"
+            "Teror Ghaib", "Mencekam", "Hantu", "Pengalaman", "Horor"
         ],
         "categories": [
-            "ghaib", "roh"
+            "ghaib", "roh", "horor"
         ]
     },
     {
@@ -132,10 +132,10 @@
         "thumbnailStatic": "/assets/images/9.png",
         "tags": [
         "tags": [
-            "Kematian", "Setelah Mati", "Cerita", "Perjalananananananan"
+            "Kematian", "Setelah Mati", "Cerita", "Filsafat"
         ],
         "categories": [
-            "kisah-jawa"
+            "kisah-jawa", "filsafat"
         ]
     }
 ]

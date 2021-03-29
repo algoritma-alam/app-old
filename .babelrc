@@ -12,6 +12,7 @@
                 "@assets": "./assets",
                 "@images": "./assets/images",
                 "@pages": "./pages",
+                "@lib": "./lib",
               }
             }
           ]

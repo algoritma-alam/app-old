@@ -1,60 +1,51 @@
 import React, { useState } from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import { tailwind } from "@resources/tailwind"
-import { MoreIcon, MerchIcon, AlgoritmaAlamNoBackground, SearchIcon } from "@resources/icons"
+import { MoreIcon, MerchIcon, AlgoritmaAlamNoBackground, SearchIcon, HomeIcon } from "@resources/icons"
+import NewHomePage from '@components/NewHomePage';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function FloatingMenu() {
+
+  const navigation = useNavigation()
 
   const [ activeMenu, setActiveMenu ] = useState(0)
 
   const menuItems = [
     {
-      text: '',
-      icon: AlgoritmaAlamNoBackground,
-      isMainMenu: true
+      text: 'Beranda',
+      icon: HomeIcon,
+      isMainMenu: true,
+      screen: 'home',
     },
     {
       text: 'Merch',
       icon: MerchIcon,
-      isMainMenu: false
+      isMainMenu: false,
+      screen: 'blueprint',
     },
     {
-      text: 'Search',
+      text: 'Pencarian',
       icon: SearchIcon,
-      isMainMenu: false
+      isMainMenu: false,
+      screen: 'home',
     },
     {
-      text: 'More',
+      text: 'Lainya',
       icon: MoreIcon,
-      isMainMenu: false
+      isMainMenu: false,
+      screen: 'blueprint',
     },
   ]
 
-  const MainMenuInactive = (menu, key) => {
+  const activateAndNavigate = (index) => {
 
-    return (
+    setActiveMenu(index)
 
-      <TouchableOpacity onPress={() => setActiveMenu(0) } key={key}>
-        <View style={[ tailwind() ]}  >
-          <View style={ tailwind('p-0.5') }>
-            <AlgoritmaAlamNoBackground style={[ tailwind('h-10 w-10'), { resizeMode: 'center' }]} />
-          </View>
-        </View>
-      </TouchableOpacity>
-    )
-  }
+    const { screen } = menuItems[index]
+    navigation.navigate(screen)
 
-
-  const MainMenuActive = (menu, key) => {
-
-    return (
-      <View style={[ tailwind() ]} key={key} >
-        <View style={[ tailwind('bg-brand p-0.5 ')]}>
-          <AlgoritmaAlamNoBackground style={[ tailwind('h-10 w-10'), { resizeMode: 'center' }]} />
-        </View>
-      </View>
-    )
   }
 
   return (<>
@@ -63,38 +54,32 @@ export default function FloatingMenu() {
       >
 
       <View style={[ tailwind(''), { height: '100%' } ]}>
-        <View style={[ tailwind('flex mx-5 items-start flex-row justify-between my-2')]}>
+        <View style={[ tailwind('flex mx-7 items-start flex-row justify-between my-2')]}>
 
             {
               menuItems.map((menu, index) => {
-                const { text, icon, isMainMenu } = menu
+                const { text, icon } = menu
 
                 const RenderableIcon = icon
 
                 return (index == activeMenu)
-                  ? (
-                     ( isMainMenu )
-                      ? <MainMenuActive menu={menu} key={index}/>
-                      : <>
-                          <View style={[ tailwind('w-28 px-5 flex  items-center justify-center h-4/5') ]} key={index} >
-                              <RenderableIcon style={ tailwind('text-white h-6 w-6') } />
-                              <Text style={ tailwind('text-white text-xxs mt-1') }>{ text }</Text>
-                          </View>
-                        </>
-                  )
-                  : (
+                  ?  <>
+                        <View style={[ tailwind('flex my-1.5  items-center justify-center h-4/5') ]} key={index} >
+                            <RenderableIcon style={ tailwind('text-white h-6 w-6 opacity-90') } />
 
-                     ( isMainMenu )
-                      ? <MainMenuInactive menu={menu} key={index}/>
-                      : <>
-                          <TouchableOpacity onPress={() => setActiveMenu(index) } key={index}>
-                            <View style={[ tailwind('w-28 px-5  flex  items-center justify-center h-4/5') ]}  >
-                                <RenderableIcon style={ tailwind('text-white opacity-50 h-6 w-6') } />
-                                <Text style={ tailwind('text-white opacity-50 text-xxs mt-1') }>{ text }</Text>
-                            </View>
-                          </TouchableOpacity>
-                        </>
-                )
+                            <Text style={ tailwind('text-white opacity-90 text-xxs mt-1') }>{ text }</Text>
+                        </View>
+                      </>
+
+                  : <>
+                    <TouchableOpacity onPress={() => activateAndNavigate(index) } key={index}>
+                      <View style={[ tailwind('my-1.5 flex  items-center justify-center h-4/5') ]}  >
+                          <RenderableIcon style={ tailwind('text-white opacity-50 h-6 w-6') } />
+                          <Text style={ tailwind('text-white opacity-50 text-xxs mt-1') }>{ text }</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </>
+
               })
             }
 

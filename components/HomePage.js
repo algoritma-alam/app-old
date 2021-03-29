@@ -78,7 +78,7 @@ export default function RecomendedVideo({children}) {
   return (
     <>
       <StatusBar style="light" />
-      <ScrollView contentContainerStyle={{flexGrow: 1, backgroundColor: '#181818'}} style={{ backgroundColor: '#181818' }}>
+      <ScrollView contentContainerStyle={{flex: 1, backgroundColor: '#181818'}} style={{ backgroundColor: '#181818' }}  scrollEnabled={false}>
         <View style={{  alignItems: 'center', position: 'relative', marginBottom: windowHeight + (hp('50%')/hp('100%') * recomendedVideoThumbnailHeight) }}>
           <View style={[  styles.recomendedVideo, { height: recomendedVideoThumbnailHeight }  ]}>
 
@@ -108,15 +108,15 @@ export default function RecomendedVideo({children}) {
 
             </View>
 
-            <View style={tailwind('px-3 mt-5')}>
+            <View style={[tailwind('px-3 mt-5')]}>
               <Text style={tailwind('text-white font-bold')}>Lanjutkan Menonton untuk Mr Shohaib</Text>
               <FlatList
-                style={tailwind('mt-2 z-20')}
-                horizontal={true}
+                nestedScrollEnabled={true}
+                style={tailwind('mt-2 z-50')}
+                horizontal
                 data={videos}
                 renderItem={renderWatchedVideoCard}
-                ItemSeparatorComponent={() => <View style={{margin: 4}}/>}
-                showsHorizontalScrollIndicator={false}
+                ItemSeparatorComponent={() => <View style={{margin: 4, paddingHorizontal: 2}}/>}
               />
 
               <Text style={tailwind('text-white font-bold mt-2')}>Mitos Atau Fakta</Text>
@@ -161,7 +161,7 @@ export default function RecomendedVideo({children}) {
                   return categories.indexOf('simbah') >= 0;
                 })}
                 renderItem={renderVideoCard}
-                ItemSeparatorComponent={() => <View style={{margin: 4}}/>}
+                ItemSeparatorComponent={() => <View style={{margin: 4, paddingHorizontal: 4}}/>}
               />
 
 

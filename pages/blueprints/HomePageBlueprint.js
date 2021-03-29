@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import {  View,SafeAreaView} from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import { tailwind } from "@resources/tailwind"
+import VideoCardBlueprint from '@components/VideoCardBlueprint'
+import WatchedVideoCardBlueprint from '@components/WatchedVideoCardBlueprint'
 
 export default function( { children } ) {
 
   return (
     <>
-      <SafeAreaView style={ tailwind('flex relative h-full bg-brand-dark items-center') }>
+      <StatusBar style="light" />
+      <SafeAreaView style={ tailwind('flex relative h-full bg-brand-dark items-center pt-10') }>
         <View  style={[  tailwind('bg-brand-darker  mt-5 flex items-center justify-between flex-col') , { width: '90%', height: '50%' } ]}>
 
           <View style={[ { width: '100%' }, tailwind('mt-10 flex flex-row items-center justify-evenly') ]}>
@@ -31,26 +34,18 @@ export default function( { children } ) {
         </View>
         <View  style={[  tailwind('bg-brand-darker  mt-3') , { width: '60%', height: '4%' } ]}/>
 
-        <View style={[ { width: '95%' }, tailwind('flex mb-2 mt-5  flex-row items-center justify-evenly overflow-hidden') ]}>
-          <View style={[  tailwind('bg-brand-darker h-28 w-20 relative') ]}>
-            <View style={ tailwind('absolute bottom-0 h-5 w-full bg-brand-darkest') } />
-          </View>
-          <View style={[  tailwind('bg-brand-darker h-28 w-20 relative') ]}>
-            <View style={ tailwind('absolute bottom-0 h-5 w-full bg-brand-darkest') } />
-          </View>
-          <View style={[  tailwind('bg-brand-darker h-28 w-20 relative') ]}>
-            <View style={ tailwind('absolute bottom-0 h-5 w-full bg-brand-darkest') } />
-          </View>
-          <View style={[  tailwind('bg-brand-darker h-28 w-20 relative') ]}>
-            <View style={ tailwind('absolute bottom-0 h-5 w-full bg-brand-darkest') } />
-          </View>
+        <View style={[ { width: '95%' }, tailwind('flex mb-2 mt-5  flex-row items-center justify-between overflow-hidden') ]}>
+          <WatchedVideoCardBlueprint />
+          <WatchedVideoCardBlueprint />
+          <WatchedVideoCardBlueprint />
+          <WatchedVideoCardBlueprint />
         </View>
 
-        <View style={[ { width: '95%' }, tailwind('flex mb-2 mt-5  flex-row items-center justify-evenly overflow-hidden') ]}>
-          <View style={[  tailwind('bg-brand-darker h-28 w-20') ]} />
-          <View style={[  tailwind('bg-brand-darker h-28 w-20') ]} />
-          <View style={[  tailwind('bg-brand-darker h-28 w-20') ]} />
-          <View style={[  tailwind('bg-brand-darker h-28 w-20') ]} />
+        <View style={[ { width: '95%' }, tailwind('flex mb-2 mt-5  flex-row items-center justify-between overflow-hidden') ]}>
+          <VideoCardBlueprint />
+          <VideoCardBlueprint />
+          <VideoCardBlueprint />
+          <VideoCardBlueprint />
         </View>
       </SafeAreaView>
 
