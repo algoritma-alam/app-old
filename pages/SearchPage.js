@@ -20,16 +20,22 @@ export default function({ navigation }) {
 
         const resultVideos = videos.filter(v => v.title.toLowerCase().indexOf(searchQuery.toLowerCase()) != -1)
 
-        while(resultVideos.length != 0 && resultVideos.length < 3) {
-            resultVideos.push(videos[Math.floor(Math.random() * videos.length)])
+        if( resultVideos.length != 0 ) {
+            // quick & dirty solutions, should make a better one.
+            const additionalEmptyVideos = (resultVideos.length / 3 % 1).toFixed(2) > .6 ? 1 : 2;
+
+            for(let i = 0; i < additionalEmptyVideos; i++) {
+                resultVideos.push({__empty: true})
+            }
         }
+
 
         const ResultDescriptor = () => {
             return (resultVideos.length < 1 && resultReady)
                 ? (
                     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                         <View style={[ tailwind('w-full ') ]}>
-                            <Text style={ tailwind('text-white font-semibold') }>Video tidak di temukann  🥺</Text>
+                            <Text style={ tailwind('text-white font-semibold') }>Video nya enggak ada...  🥺</Text>
                         </View>
                     </TouchableWithoutFeedback>
                 )
@@ -47,7 +53,9 @@ export default function({ navigation }) {
         }
 
         useEffect(() => {
-            setTimeout(() => setResultReady(true), 1500)
+            const searchTimer = setTimeout(() => setResultReady(true), 1500)
+
+            return() => clearTimeout(searchTimer)
         }, [])
 
         return (
@@ -60,18 +68,25 @@ export default function({ navigation }) {
                 { resultReady
                        ? <FlatList
                             style={[tailwind('mt-5 z-50 mb-5')]}
-                            columnWrapperStyle={[tailwind('flex flex-row justify-between items-start  w-full mb-2')]}
+                            columnWrapperStyle={[tailwind('flex flex-row items-center justify-between  w-full mb-1')]}
+                            contentContainerStyle={{ paddingBottom: '50%' }}
                             numColumns={3}
                             data={resultVideos}
-                            renderItem={(item) => (<View><VideoCardCover  video={item} /></View>)}
+                            renderItem={(item) => (
+                                <View><VideoCardCover  video={item} /></View>
+                            )}
                             keyExtractor={(item) => item.id}
                         />
-                       : <View style={[ { width: '100%' }, tailwind('flex mb-2 mt-5  flex-row items-start justify-between overflow-hidden') ]}>
-                            <VideoCardBlueprint />
-                            <VideoCardBlueprint />
-                            <VideoCardBlueprint />
-                            <VideoCardBlueprint />
-                        </View>
+                       : <FlatList
+                            style={[tailwind('mt-5 z-50 mb-5')]}
+                            columnWrapperStyle={[tailwind('flex flex-row items-center justify-between  w-full mb-1')]}
+                            numColumns={3}
+                            data={videos}
+                            renderItem={(item) => (
+                                <VideoCardBlueprint />
+                            )}
+                            keyExtractor={(item) => item.id}
+                        />
                 }
 
 

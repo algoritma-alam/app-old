@@ -7,20 +7,27 @@ import Svg, {
 
 export default function VideoCard(props) {
 
+  const EmptyVideoCardCover = () => {
+      return (
+          <View style={tailwind('h-48 w-32')} />
+      )
+  }
+
   const { video: { item } } = props
-
-
   const { thumbnailStatic, id } = item
 
+
   const LogoRibbon = require('@assets/images/logo-ribbon.png')
-    return (
-        <View style={tailwind('flex relative')}>
-          <View style={[tailwind('absolute left-1 top-0  z-20')]}>
-            <Image source={LogoRibbon} style={[tailwind('h-8 w-8'), { resizeMode: 'center' }]}/>
-          </View>
-
-          <ImageBackground source={thumbnailStatic} style={tailwind('h-48 w-32 relative')} />
-
+  return (id !== undefined)
+    ? (
+      <View style={tailwind('flex relative')}>
+        <View style={[tailwind('absolute left-1 top-0  z-20')]}>
+          <Image source={LogoRibbon} style={[tailwind('h-8 w-8'), { resizeMode: 'center' }]}/>
         </View>
+
+        <ImageBackground source={thumbnailStatic} style={tailwind('h-48 w-32 relative')} />
+
+      </View>
     )
+    : (<EmptyVideoCardCover />)
 }
