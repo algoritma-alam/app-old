@@ -55,7 +55,7 @@ export default function( { navigation } ) {
                     <TouchableOpacity onPress={() => console.log('horor pressed')} activeOpacity={0.6}>
                       <Text style={ tailwind('text-white text-sm font-light') }>JATI DIRI</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => console.log('kategori pressed')} activeOpacity={0.6}>
+                    <TouchableOpacity onPress={() => navigation.navigate('category-listing')} activeOpacity={0.6}>
                       <View style={ tailwind('flex items-center flex-row') }>
                         <View style={tailwind('rounded-full bg-brand w-1.5 h-1.5 mr-0.5')} />
                         <Text style={ tailwind('text-white text-sm font-light') }>KATEGORI</Text>

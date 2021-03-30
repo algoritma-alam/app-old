@@ -8,6 +8,8 @@ import HomePageBlueprint from '@pages/blueprints/HomePageBlueprint';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { tailwind } from "@resources/tailwind"
 import SearchPage from '@pages/SearchPage'
+import CategoryListing from '@pages/CategoryListing'
+import CategoryListingBlueprint from '@pages/blueprints/CategoryListingBlueprint'
 import TabNavigation from '@components/TabNavigation'
 
 export default function App() {
@@ -32,6 +34,7 @@ export default function App() {
                     headerShown: false}}
             >
                 <HomeStack.Screen name="home" component={HomePageLoader}/>
+                <HomeStack.Screen name="category-listing" component={CategoryListing}/>
             </HomeStack.Navigator>
         );
     }

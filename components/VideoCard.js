@@ -19,7 +19,7 @@ export default function VideoCard(props) {
             <Image source={LogoRibbon} style={[tailwind('h-8 w-8'), { resizeMode: 'center' }]}/>
           </View>
 
-          <ImageBackground source={thumbnailStatic} style={tailwind('h-40 w-28 relative')} />
+          <ImageBackground source={thumbnailStatic} style={tailwind('h-40 w-28 relative')}  />
 
         </View>
     )

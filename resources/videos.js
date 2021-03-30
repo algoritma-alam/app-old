@@ -6,10 +6,10 @@ export default videos = [
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/bencana%20alam%20dan%20darah%20perwan.png",
         "thumbnailStatic": require('../assets/images/0.png'),
         "tags": [
-            "Menegangkan", "Mencekam", "Hantuuuuuu", "Wkwkwkwk"
+            "Menegangkan", "Mencekam", "Rahasia Alam"
         ],
         "categories": [
-            "mitos", "cerita-rakyat"
+            "mitos", "cerita-rakyat", "rahasia-alam"
         ]
     },
     {
@@ -19,10 +19,10 @@ export default videos = [
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/satrio%20piningit.png",
         "thumbnailStatic": require('../assets/images/1.png'),
         "tags": [
-            "Kisah Jawa", "Ramalan", "Anak Manusia"
+            "Kisah Jawa", "Ramalan", "Kisah Teladan"
         ],
         "categories": [
-            "ramalan", "kisah-jawa"
+            "ramalan", "kisah-jawa", "kisah-teladan"
         ]
     },
     {
@@ -32,10 +32,10 @@ export default videos = [
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/jimat-popok-wewe.png",
         "thumbnailStatic": require('../assets/images/2.png'),
         "tags": [
-            "Pesugihan", "Karma", "Kisah", "Kematian"
+            "Pesugihan", "Karma", "Horor", "Kematian"
         ],
         "categories": [
-            "pesugihan", "kisah-nyata"
+            "pesugihan", "kisah-nyata", "karma", "horor"
         ]
     },
     {
@@ -45,10 +45,10 @@ export default videos = [
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/DARAH%20KORBAN%20KECELAKAAN.png",
         "thumbnailStatic": require('../assets/images/3.png'),
         "tags": [
-            "Menegangkan", "Kecelakaan", "Mitos"
+            "Menegangkan", "Kecelakaan", "Mitos", "Horor"
         ],
         "categories": [
-            "mitos"
+            "mitos", "horor"
         ]
     },
     {
@@ -58,10 +58,10 @@ export default videos = [
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/DENDAM%20ROH%20TABRAK%20LARI.png",
         "thumbnailStatic": require('../assets/images/4.png'),
         "tags": [
-            "Menegangkan", "Mitos", "Setelah Mati", "Roh"
+            "Menegangkan", "Mitos", "Setelah Mati", "Perjalanan Roh", "Horor"
         ],
         "categories": [
-            "mitos"
+            "mitos", "horor", "perjalanan-roh"
         ]
     },
     {
@@ -71,10 +71,10 @@ export default videos = [
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/SAKARATUL%20MAUT%20PT1.png",
         "thumbnailStatic": require('../assets/images/5.png'),
         "tags": [
-            "Kematian", "Menegangkan", "Kisah Simbah", "Cerita"
+            "Kematian", "Menegangkan", "Kisah Simbah", "Cerita", "Filsafat"
         ],
         "categories": [
-            "kisah-nyata", "simbah"
+            "kisah-nyata", "simbah", "filsafat", "perjalanan-roh"
         ]
     },
     {
@@ -84,10 +84,10 @@ export default videos = [
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/simbah%20vs%20gunung%20ciremai,%20eh%20hantu.png",
         "thumbnailStatic": require('../assets/images/6.png'),
         "tags": [
-            "Cerita Simbah", "Pertarungan Sengit", "Hantuuuuuu", "Wkwkwkwk"
+            "Cerita Simbah", "Horor", "Rahasia Alam"
         ],
         "categories": [
-            "kisah-nyata", "simbah"
+            "kisah-nyata", "simbah", "horor", "rahasia-alam"
         ]
     },
     {
@@ -97,10 +97,10 @@ export default videos = [
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/anak%20hilang%20vs%20tampah%20aowkaowka.png",
         "thumbnailStatic": require('../assets/images/7.png'),
         "tags": [
-            "Kisah Rakyat", "Mencekam", "Hantu", "Gak tau apalagi wkwkw"
+            "Kisah Rakyat", "Mencekam", "Hantu", "Horor"
         ],
         "categories": [
-            "mitor", "cerita-rakyat"
+            "mitor", "cerita-rakyat", "horor"
         ]
     },
     {
@@ -110,10 +110,10 @@ export default videos = [
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/TEROR%20ARWAH%20JANIN%20KOST%20WANITA.png",
         "thumbnailStatic": require('../assets/images/8.png'),
         "tags": [
-            "Teror Ghaib", "Mencekam", "Hantu", "Pengalaman"
+            "Teror Ghaib", "Mencekam", "Hantu", "Pengalaman", "Horor"
         ],
         "categories": [
-            "ghaib", "roh"
+            "ghaib", "roh", "horor"
         ]
     },
     {
@@ -123,10 +123,10 @@ export default videos = [
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/PERJALANAN%20MANUSIA%20DARI%20SEBELUM%20LAHR%20HINGGA%20KEMATIAN.png",
         "thumbnailStatic": require('../assets/images/8.png'),
         "tags": [
-            "Kematian", "Setelah Mati", "Cerita", "Perjalananananananan"
+            "Kematian", "Setelah Mati", "Cerita", "Filsafat"
         ],
         "categories": [
-            "kisah-jawa"
+            "kisah-jawa", "filsafat"
         ]
     }
 ];
