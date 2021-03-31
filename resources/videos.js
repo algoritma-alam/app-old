@@ -126,7 +126,7 @@ export default videos = [
             "Kematian", "Setelah Mati", "Cerita", "Filsafat"
         ],
         "categories": [
-            "kisah-jawa", "filsafat"
+            "kisah-jawa", "filsafat", "horor"
         ]
     }
 ];

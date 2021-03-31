@@ -3,11 +3,12 @@ import {  View, SafeAreaView, Image, Text } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import { tailwind, getColor } from "@resources/tailwind"
 import BackButtonX from '@components/BackButtonX';
-import {FlatList} from 'react-native-gesture-handler';
+import {FlatList, TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import categories from '@resources/categories'
 import videos from '@resources/videos'
 import CategoryListingBlueprint from '@pages/blueprints/CategoryListingBlueprint';
 import CategoryCover from '@components/CategoryCover';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default function( { children, navigation } ) {
 
@@ -15,7 +16,7 @@ export default function( { children, navigation } ) {
     return {videos: videos.filter((v) => v.categories.includes(category.slug)), ...category}
   })
 
-  const LogoRibbon = require('@assets/images/logo-ribbon-long.png')
+  const LogoRibbon = require('@assets/images/logo-ribbon-medium.png')
   const [ isCategoryLoaded, setCategoryLoaded ] = useState(false)
 
   useEffect(() => {
@@ -33,26 +34,35 @@ export default function( { children, navigation } ) {
           ? <CategoryListingBlueprint />
           : (<>
 
-          <SafeAreaView style={ tailwind('flex relative h-full bg-brand-dark  pt-10') }>
-            <View style={[tailwind('absolute inset-0  z-20  ')]}>
-              <View style={tailwind('flex flex-row justify-between items-center w-full')}>
-                <Image source={LogoRibbon} style={[tailwind('ml-5 w-12 h-24'), {resizeMode: 'cover'}]} />
-                <BackButtonX style={tailwind('mt-8 mr-5')} onPress={() => navigation.goBack()}/>
+          <View style={tailwind('bg-brand-dark w-full h-full')}>
+            <SafeAreaView style={[ tailwind('flex relative h-full   pt-10'), { width: wp(90), marginHorizontal: wp(5) }]}>
+              <View style={[tailwind('absolute inset-0  z-20  ')]}>
+                <View style={tailwind('flex flex-row justify-between items-center w-full')}>
+                  <Image source={LogoRibbon} style={[tailwind(' w-12 h-20'), {resizeMode: 'cover'}]} />
+                  <BackButtonX style={tailwind('mt-12')} onPress={() => navigation.goBack()}/>
+                </View>
+
+                <Text style={tailwind('text-white mt-5 font-bold text-3xl')}>KATEGORI</Text>
+                <FlatList
+                  style={[tailwind('mt-5  z-50 mb-5 w-full ')]}
+                  contentContainerStyle={{ paddingBottom: '10%' }}
+                  columnWrapperStyle={[tailwind('flex flex-row items-center  justify-between  w-full'), {marginBottom: hp(5)}]}
+                  showsVerticalScrollIndicator={false}
+                  showsHorizontalScrollIndicator={false}
+                  numColumns={2}
+                  data={categoriesWithVideos}
+                  renderItem={(item) => (
+                      <CategoryCover category={item} />
+                  )}
+                  keyExtractor={(item) => item.id}
+                />
+
               </View>
 
-              <Text style={tailwind('text-white mt-5 ml-5 font-bold text-3xl')}>KATEGORI</Text>
-              <FlatList
-                style={[tailwind('mt-5  z-50 mb-5 w-full')]}
-                contentContainerStyle={{ paddingBottom: '10%' }}
-                columnWrapperStyle={[tailwind('flex flex-row items-center justify-evenly  w-full mb-5')]}
-                numColumns={2}
-                data={categoriesWithVideos}
-                renderItem={(item) => <CategoryCover category={item} />}
-                keyExtractor={(item) => item.id}
-              />
-            </View>
+
 
           </SafeAreaView>
+        </View>
         </>)
       }
 

@@ -9,7 +9,7 @@ export default function({ onPress, style }) {
 
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
-      <View  style={[tailwind('rounded-full bg-brand-darker w-7 h-7 flex items-center justify-center'), {...style}]}>
+      <View  style={[tailwind('rounded-full bg-brand-darker bg-opacity-50 w-7 h-7 flex items-center justify-center'), {...style}]}>
           <TimesIcon style={[tailwind('h-6 w-6 text-white opacity-70 ')]} fill={getColor('brand-darkest')} />
       </View>
     </TouchableOpacity>

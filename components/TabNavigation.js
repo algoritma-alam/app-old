@@ -3,6 +3,7 @@ import {View, TouchableOpacity, Text, Keyboard} from 'react-native';
 import 'react-native-gesture-handler';
 import { MoreIcon, MerchIcon, SearchIcon, HomeIcon } from "@resources/icons"
 import { tailwind } from "@resources/tailwind"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default function({ state, descriptors, navigation}) {
   const [ showTab, setShowTab ] = useState(true)
@@ -28,7 +29,7 @@ export default function({ state, descriptors, navigation}) {
   return (
 
       <View
-        style={[tailwind(` border-t border-white border-opacity-30 ${showTab ? 'bottom-0' : '-bottom-64 hidden'}  absolute  z-30  left-0 right-0 bg-brand-dark overflow-hidden `), { height: '8%'}]}
+        style={[tailwind(` border-t border-white border-opacity-30 ${showTab ? 'bottom-0' : '-bottom-64 hidden'}  absolute  z-30  left-0 right-0 bg-brand-dark overflow-hidden `), { height: hp(10)}]}
       >
 
       <View style={[ tailwind(''), { height: '100%' } ]}>

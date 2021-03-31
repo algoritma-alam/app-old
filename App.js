@@ -11,6 +11,7 @@ import SearchPage from '@pages/SearchPage'
 import CategoryListing from '@pages/CategoryListing'
 import CategoryListingBlueprint from '@pages/blueprints/CategoryListingBlueprint'
 import TabNavigation from '@components/TabNavigation'
+import CategoryDetails from '@pages/CategoryDetails';
 
 export default function App() {
 
@@ -35,6 +36,7 @@ export default function App() {
             >
                 <HomeStack.Screen name="home" component={HomePageLoader}/>
                 <HomeStack.Screen name="category-listing" component={CategoryListing}/>
+                <HomeStack.Screen name="category-details" component={CategoryDetails}/>
             </HomeStack.Navigator>
         );
     }
@@ -51,7 +53,7 @@ export default function App() {
             >
                 <Tab.Screen name="home" component={HomeStackScreen}  options={{ title: 'Beranda' }}/>
                 <Tab.Screen name="search" component={SearchPage} options={{ title: 'Pencarian' }}/>
-                <Tab.Screen name="merch" component={HomePageBlueprint} optionas={{ title: 'Merch' }}/>
+                <Tab.Screen name="merch" component={HomePageBlueprint} options={{ title: 'Merch' }}/>
                 <Tab.Screen name="more" component={HomePageBlueprint}  options={{ title: 'Lainya' }}/>
             </Tab.Navigator>
 

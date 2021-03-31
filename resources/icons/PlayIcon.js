@@ -1,32 +1,36 @@
 import * as React from "react"
-import Svg, { Path } from "react-native-svg"
+import Svg, { G, Path, Defs, ClipPath } from "react-native-svg"
 
 function PlayIcon(props) {
   return (
     <Svg
-      viewBox="0 0 61 61"
+      width={59}
+      height={59}
+      viewBox="0 0 59 59"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <Path
-        d="M30.5 55.917c14.037 0 25.417-11.38 25.417-25.417S44.537 5.083 30.5 5.083 5.083 16.463 5.083 30.5 16.463 55.917 30.5 55.917z"
-        fill="#000"
-        fillOpacity={0.4}
+      <G
+        clipPath="url(#prefix__clip0)"
         stroke="#fff"
         strokeOpacity={0.9}
         strokeWidth={1.548}
         strokeLinecap="round"
         strokeLinejoin="round"
-      />
-      <Path
-        d="M25.417 20.333L40.667 30.5l-15.25 10.167V20.333z"
-        stroke="#fff"
-        strokeOpacity={0.9}
-        strokeWidth={1.548}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      >
+        <Path
+          d="M29.5 58C45.24 58 58 45.24 58 29.5S45.24 1 29.5 1 1 13.76 1 29.5 13.76 58 29.5 58z"
+          fill="#000"
+          fillOpacity={0.4}
+        />
+        <Path d="M23 19l16 10.5L23 40V19z" />
+      </G>
+      <Defs>
+        <ClipPath id="prefix__clip0">
+          <Path fill="#fff" d="M0 0h58.822v58.822H0z" />
+        </ClipPath>
+      </Defs>
     </Svg>
   )
 }

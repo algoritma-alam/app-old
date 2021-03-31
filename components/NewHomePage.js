@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Image, ImageBackground, ScrollView, View, Text, useWindowDimensions, SafeAreaView, TouchableOpacity} from 'react-native'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { StatusBar } from 'expo-status-bar';
 import { tailwind } from "@resources/tailwind"
 import {FlatList} from 'react-native-gesture-handler';
 import videos from '@resources/videos'
+import categories from '@resources/categories'
 import Svg, {
   Path
 } from 'react-native-svg';
@@ -21,8 +23,16 @@ export default function( { navigation } ) {
   const [recommendedVideo, setRecomendedVideo] = useState(videos[RECOMMENDED_VIDEO_INDEX])
   const { _, getImageProps } = useResponsiveImageView({ source: recommendedVideo.thumbnailStatic });
 
-  const windowHeight = useWindowDimensions().height
-  const recommendedVideoHeight = ( windowHeight > 750 )  ? '75%' : '80%'
+  const windowHeight = hp(100)
+  const recommendedVideoHeight = ( windowHeight > 600 )  ? hp('80%') : hp('95%')
+
+  const categoriesToRender = categories
+    .map(category => {
+
+      return { ...category, videos: videos.filter(v => v.categories.includes(category.slug)) }
+
+    })
+    .filter(category => category.videos.length > 0)
 
   useEffect(() => {
 
@@ -35,24 +45,24 @@ export default function( { navigation } ) {
     <>
       <StatusBar style="light" />
 
-      <View style={[ tailwind('bg-brand-darker'), {  height: '100%' } ]}>
+      <View style={[ tailwind('bg-brand-darker'), {  height: hp(100) } ]}>
 
-        <ScrollView contentContainerStyle={[ { paddingBottom: windowHeight * 1.3 }]}>
+        <ScrollView contentContainerStyle={[ { paddingBottom: hp(10) }]}>
           <View style={[tailwind('absolute inset-0 ml-5 z-20 w-12 h-24')]}>
             <Image source={LogoRibbon} style={[tailwind('w-12 h-24'), {resizeMode: 'cover'}]} />
           </View>
 
-          <View style={[ { height: recommendedVideoHeight }]} key={`recommended-video`}>
+          <View style={[{ width: wp(100), height: recommendedVideoHeight, resizeMode: 'center' }, tailwind('bg-brand-darker') ]}>
 
             <ImageBackground { ... getImageProps() }>
 
               <SafeAreaView style={[ tailwind('z-20 px-3'), { marginTop: '15%' }]}>
                 <View style={ tailwind('flex flex-col  justify-between') }>
                   <View style={tailwind('h-1/2  flex flex-row justify-evenly items-start z-50  ml-16')}>
-                    <TouchableOpacity onPress={() => console.log('horor pressed')} activeOpacity={0.6}>
+                    <TouchableOpacity onPress={() => navigation.navigate('category-details', {slug: 'horor'})} activeOpacity={0.6}>
                       <Text style={ tailwind('text-white text-sm font-light') }>HOROR</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => console.log('horor pressed')} activeOpacity={0.6}>
+                    <TouchableOpacity onPress={() => navigation.navigate('category-details', {slug: 'jati-diri'})} activeOpacity={0.6}>
                       <Text style={ tailwind('text-white text-sm font-light') }>JATI DIRI</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('category-listing')} activeOpacity={0.6}>
@@ -90,33 +100,38 @@ export default function( { navigation } ) {
 
           </View>
 
-          <View style={[ tailwind('px-3 mt-5 flex items-start justify-evenly')]}>
+          <View style={[ tailwind('px-3 mt-5 flex items-start justify-between')]}>
               <Text style={ tailwind('text-white font-bold text-sm') }>Lanjutkan menonton</Text>
               <FlatList
                 style={tailwind('mt-2 z-50 mb-5')}
                 horizontal
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
                 data={videos}
                 renderItem={(item) => <WatchedVideoCard video={item} />}
                 ItemSeparatorComponent={() => <View style={{margin: 4, paddingHorizontal: 2}}/>}
               />
 
-              <Text style={ tailwind('text-white font-bold text-sm') }>Lanjutkan menonton</Text>
-              <FlatList
-                style={tailwind('mt-2 z-50 mb-5')}
-                horizontal
-                data={videos}
-                renderItem={(item) => <VideoCard video={item} />}
-                ItemSeparatorComponent={() => <View style={{margin: 4, paddingHorizontal: 2}}/>}
-              />
 
-              <Text style={ tailwind('text-white font-bold text-sm') }>Lanjutkan menonton</Text>
-              <FlatList
-                style={tailwind('mt-2 z-50')}
-                horizontal
-                data={videos}
-                renderItem={(item) => <VideoCard video={item} />}
-                ItemSeparatorComponent={() => <View style={{margin: 4, paddingHorizontal: 2}}/>}
-              />
+              {
+                categoriesToRender.map(c => {
+                  return (
+                    <>
+                      <Text style={ tailwind('text-white font-bold text-sm') }>{ c.name }</Text>
+                      <FlatList
+                        style={tailwind('mt-2 z-50 mb-2')}
+                        horizontal
+                        showsVerticalScrollIndicator={false}
+                        showsHorizontalScrollIndicator={false}
+                        data={c.videos}
+                        renderItem={(item) => <VideoCard style={{ width: wp(90/3.3) }} video={item} />}
+                        ItemSeparatorComponent={() => <View style={{margin: 2, paddingHorizontal: 2}}/>}
+                      />
+                    </>
+                  )
+
+                })
+              }
 
           </View>
 
