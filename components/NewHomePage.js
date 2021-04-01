@@ -17,7 +17,7 @@ import VideoCard from '@components/VideoCard';
 
 export default function( { navigation } ) {
 
-  const LogoRibbon = require('../assets/images/logo-ribbon-long.png')
+  const LogoRibbon = require('../assets/images/logo-ribbon-medium.png')
   const RECOMMENDED_VIDEO_INDEX = Math.floor(Math.random() * videos.length)
 
   const [recommendedVideo, setRecomendedVideo] = useState(videos[RECOMMENDED_VIDEO_INDEX])
@@ -48,8 +48,8 @@ export default function( { navigation } ) {
       <View style={[ tailwind('bg-brand-darker'), {  height: hp(100) } ]}>
 
         <ScrollView contentContainerStyle={[ { paddingBottom: hp(10) }]}>
-          <View style={[tailwind('absolute inset-0 ml-5 z-20 w-12 h-24')]}>
-            <Image source={LogoRibbon} style={[tailwind('w-12 h-24'), {resizeMode: 'cover'}]} />
+          <View style={[tailwind('absolute inset-0 ml-5 z-20 w-12 h-20')]}>
+            <Image source={LogoRibbon} style={[tailwind('w-14 h-20'), {resizeMode: 'cover'}]} />
           </View>
 
           <View style={[{ width: wp(100), height: recommendedVideoHeight, resizeMode: 'center' }, tailwind('bg-brand-darker') ]}>

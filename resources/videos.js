@@ -121,7 +121,7 @@ export default videos = [
         "title": "PERJALANAN MANUSIA DARI SEBELUM LAHIR HINGGA KEMATIAN",
         "video_url": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/PERJALANAN%20MANUSIA%20DARI%20SEBELUM%20LAHIR%20HINGGA%20KEMATIANNYA_1080p.mp4",
         "thumbnail": "https://kodinger-cdn.sgp1.cdn.digitaloceanspaces.com/algoritma-alam/thumbnails/with-watermark/PERJALANAN%20MANUSIA%20DARI%20SEBELUM%20LAHR%20HINGGA%20KEMATIAN.png",
-        "thumbnailStatic": require('../assets/images/8.png'),
+        "thumbnailStatic": require('../assets/images/9.png'),
         "tags": [
             "Kematian", "Setelah Mati", "Cerita", "Filsafat"
         ],

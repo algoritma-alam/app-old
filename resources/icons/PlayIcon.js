@@ -2,6 +2,9 @@ import * as React from "react"
 import Svg, { G, Path, Defs, ClipPath } from "react-native-svg"
 
 function PlayIcon(props) {
+
+  const { circleStyle } = props
+
   return (
     <Svg
       width={59}
@@ -22,7 +25,8 @@ function PlayIcon(props) {
         <Path
           d="M29.5 58C45.24 58 58 45.24 58 29.5S45.24 1 29.5 1 1 13.76 1 29.5 13.76 58 29.5 58z"
           fill="#000"
-          fillOpacity={0.4}
+          fillOpacity={0.5}
+          {...circleStyle}
         />
         <Path d="M23 19l16 10.5L23 40V19z" />
       </G>

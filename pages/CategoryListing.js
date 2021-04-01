@@ -3,7 +3,7 @@ import {  View, SafeAreaView, Image, Text } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import { tailwind, getColor } from "@resources/tailwind"
 import BackButtonX from '@components/BackButtonX';
-import {FlatList, TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import {FlatList} from 'react-native-gesture-handler';
 import categories from '@resources/categories'
 import videos from '@resources/videos'
 import CategoryListingBlueprint from '@pages/blueprints/CategoryListingBlueprint';
@@ -38,7 +38,7 @@ export default function( { children, navigation } ) {
             <SafeAreaView style={[ tailwind('flex relative h-full   pt-10'), { width: wp(90), marginHorizontal: wp(5) }]}>
               <View style={[tailwind('absolute inset-0  z-20  ')]}>
                 <View style={tailwind('flex flex-row justify-between items-center w-full')}>
-                  <Image source={LogoRibbon} style={[tailwind(' w-12 h-20'), {resizeMode: 'cover'}]} />
+                  <Image source={LogoRibbon} style={[tailwind(' w-14 h-20'), {resizeMode: 'cover'}]} />
                   <BackButtonX style={tailwind('mt-12')} onPress={() => navigation.goBack()}/>
                 </View>
 

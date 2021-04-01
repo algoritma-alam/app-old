@@ -20,7 +20,7 @@ export default function( { children } ) {
         <SafeAreaView style={[ tailwind('flex relative h-full pt-10'), { width: '90%', marginHorizontal: '5%' }]}>
           <View style={[tailwind('absolute inset-0  z-20  ')]}>
             <View style={tailwind('flex flex-row justify-between items-center w-full')}>
-              <Image source={LogoRibbon} style={[tailwind('w-12 h-20'), {resizeMode: 'cover'}]} />
+              <Image source={LogoRibbon} style={[tailwind('w-14 h-20'), {resizeMode: 'cover'}]} />
               <BackButtonX style={tailwind('mt-12')} onPress={() => navigation.goBack()}/>
             </View>
 

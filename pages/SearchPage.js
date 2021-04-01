@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import {  View, TextInput, Text, TouchableWithoutFeedback, FlatList, Keyboard, useWindowDimensions } from 'react-native'
+import {  View, SafeAreaView, TextInput, Text, TouchableWithoutFeedback, FlatList, Keyboard, useWindowDimensions, Platform } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import { tailwind, getColor } from "@resources/tailwind"
 import VideoCardBlueprint from '@components/VideoCardBlueprint'
 import VideoCardCover from '@components/VideoCardCover'
+import VideoCard from '@components/VideoCard'
 import { SearchIcon } from '@resources/icons'
 import videos from '@resources/videos'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default function({ navigation }) {
 
@@ -13,6 +15,25 @@ export default function({ navigation }) {
 
     const height = useWindowDimensions().height
     const containerPadding = height * 1.3
+
+    const [ addAdditionalHeight, setAdditionalHeight ] = useState(false)
+    const keyboardWillHideHandler = () => setAdditionalHeight(false)
+    const keyboardWillShowHandler = () => setAdditionalHeight(true)
+
+    useEffect(() => {
+        Keyboard.addListener("keyboardWillHide", keyboardWillHideHandler);
+        Keyboard.addListener("keyboardWillShow", keyboardWillShowHandler);
+        Keyboard.addListener("keyboardDidHide", keyboardWillHideHandler);
+        Keyboard.addListener("keyboardDidShow", keyboardWillShowHandler);
+
+        // cleanup function
+        return () => {
+        Keyboard.removeListener("keyboardWillShow", keyboardWillShowHandler);
+        Keyboard.removeListener("keyboardWillHide", keyboardWillHideHandler);
+        Keyboard.removeListener("keyboardDidShow", keyboardWillShowHandler);
+        Keyboard.removeListener("keyboardDidHide", keyboardWillHideHandler);
+        };
+    })
 
     const SearchResult = () => {
 
@@ -73,7 +94,7 @@ export default function({ navigation }) {
                             numColumns={3}
                             data={resultVideos}
                             renderItem={(item) => (
-                                <View><VideoCardCover  video={item} /></View>
+                                <View><VideoCard style={{ width: wp(93/3) }}  video={item} /></View>
                             )}
                             keyExtractor={(item) => item.id}
                         />
@@ -83,7 +104,7 @@ export default function({ navigation }) {
                             numColumns={3}
                             data={videos}
                             renderItem={(item) => (
-                                <VideoCardBlueprint />
+                                <VideoCardBlueprint style={{ width: wp(93/3) }}/>
                             )}
                             keyExtractor={(item) => item.id}
                         />
@@ -100,8 +121,8 @@ export default function({ navigation }) {
     return (
         <>
             <StatusBar style="light" />
-            <View style={ tailwind('flex relative h-full bg-brand-dark items-center') }>
-                <View  style={[  tailwind('bg-brand-darker flex justify-end items-center') , { width: '100%', height: '15%' } ]}>
+            <View style={ tailwind(`flex relative h-full bg-brand-dark items-center `) }>
+                <SafeAreaView  style={[  tailwind(`bg-brand-darker flex justify-end items-center `) , { width: '100%', height: addAdditionalHeight && Platform.OS == 'android' ? '25%' : '15%' } ]}>
                     <View style={[{width: '95%'}, tailwind('flex flex-row ')  ]}>
                         <View
                             style={[ tailwind('bg-brand-darkest h-10 rounded-l-lg flex items-center justify-center'), { width: '10%' } ]}
@@ -116,7 +137,7 @@ export default function({ navigation }) {
                             placeholderTextColor={getColor('white opacity-40')}
                         />
                     </View>
-                </View>
+                </SafeAreaView>
 
                 {
                     searchQuery

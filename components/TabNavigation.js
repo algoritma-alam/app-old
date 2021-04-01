@@ -7,9 +7,11 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 export default function({ state, descriptors, navigation}) {
   const [ showTab, setShowTab ] = useState(true)
-
   const keyboardWillHideHandler = () => setShowTab(true)
   const keyboardWillShowHandler = () => setShowTab(false)
+
+  const screenHeight = hp(100)
+  const tabHeight    = screenHeight > 600 ? hp('8%') : hp('10%')
 
   useEffect(() => {
     Keyboard.addListener("keyboardWillHide", keyboardWillHideHandler);
@@ -29,7 +31,7 @@ export default function({ state, descriptors, navigation}) {
   return (
 
       <View
-        style={[tailwind(` border-t border-white border-opacity-30 ${showTab ? 'bottom-0' : '-bottom-64 hidden'}  absolute  z-30  left-0 right-0 bg-brand-dark overflow-hidden `), { height: hp(10)}]}
+        style={[tailwind(` border-t border-white border-opacity-30 ${showTab ? 'bottom-0' : '-bottom-64 hidden'}  absolute  z-30  left-0 right-0 bg-brand-dark overflow-hidden `), { height: tabHeight}]}
       >
 
       <View style={[ tailwind(''), { height: '100%' } ]}>
