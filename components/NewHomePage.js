@@ -103,13 +103,14 @@ export default function( { navigation } ) {
           <View style={[ tailwind('px-3 mt-5 flex items-start justify-between')]}>
               <Text style={ tailwind('text-white font-bold text-sm') }>Lanjutkan menonton</Text>
               <FlatList
-                style={tailwind('mt-2 z-50 mb-5')}
+                style={tailwind('-mx-3 mt-2 z-50 mb-5')}
                 horizontal
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
                 data={videos}
                 renderItem={(item) => <WatchedVideoCard video={item} />}
                 ItemSeparatorComponent={() => <View style={{margin: 4, paddingHorizontal: 2}}/>}
+                contentContainerStyle={tailwind('px-3')}
               />
 
 
@@ -119,13 +120,14 @@ export default function( { navigation } ) {
                     <>
                       <Text style={ tailwind('text-white font-bold text-sm') }>{ c.name }</Text>
                       <FlatList
-                        style={tailwind('mt-2 z-50 mb-2')}
+                        style={tailwind('-mx-3 mt-2 z-50 mb-2')}
                         horizontal
                         showsVerticalScrollIndicator={false}
                         showsHorizontalScrollIndicator={false}
                         data={c.videos}
                         renderItem={(item) => <VideoCard style={{ width: wp(90/3.3) }} video={item} />}
                         ItemSeparatorComponent={() => <View style={{margin: 2, paddingHorizontal: 2}}/>}
+                        contentContainerStyle={tailwind('px-3')}
                       />
                     </>
                   )
